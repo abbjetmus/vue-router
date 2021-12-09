@@ -2,15 +2,22 @@
 <template>
   <div>
     <div>
-      <ul>
-        <li><RouterLink to="/">Home</RouterLink></li>
-        <li><RouterLink to="/contact">Contact</RouterLink></li>
-        <li><RouterLink to="/about">About</RouterLink></li>
-      </ul>
+      <div>
+        <RouterLink to="/">Home</RouterLink> |
+        <RouterLink to="/contact">Contact</RouterLink> |
+        <RouterLink to="/about">About</RouterLink>
+      </div>
+      <br>
+      <br>
+      <div>
+        <button @click="navigera('/')">Home</button> | 
+        <button @click="navigera('/contact')">Contact</button> | 
+        <button @click="navigera('/about')">About</button>
+      </div>
     </div>
 
     <RouterView></RouterView>
-    
+
   </div>
 </template>
 
@@ -22,6 +29,11 @@ export default {
   },
   data () {
     return {
+    }
+  },
+  methods: {
+    navigera(nyRutt) {
+      this.$router.push(nyRutt)
     }
   },
 }
